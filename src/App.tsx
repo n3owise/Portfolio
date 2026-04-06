@@ -8,8 +8,7 @@ import FeaturedWork from './components/FeaturedWork';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-
-import Cursor from './components/Cursor';
+import SmoothCursor from './components/SmoothCursor';
 import SplashScreen from './components/SplashScreen';
 import FolderAssemblyOverlay, {
   ASSEMBLY_PIECES,
@@ -317,7 +316,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-black text-ink font-sans selection:bg-ink selection:text-paper">
-      <Cursor />
+      <SmoothCursor />
 
       {phase !== 'done' && (
         <SplashScreen

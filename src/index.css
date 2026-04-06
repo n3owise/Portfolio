@@ -11,6 +11,13 @@
 }
 
 @layer base {
+  * {
+    cursor: none !important;
+  }
+  input, textarea, select {
+    cursor: text !important;
+  }
+
   body {
     @apply bg-paper text-ink font-sans antialiased overflow-x-hidden;
   }
@@ -39,7 +46,7 @@
   }
 
   .ui-action-light {
-    @apply inline-flex items-center justify-center border-2 border-current px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors duration-200 hover:bg-current text-ink hover:text-paper;
+    @apply inline-flex items-center justify-center border-2 border-current px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors duration-200 hover:bg-ink text-ink hover:text-paper;
   }
 
   .media-skeleton {
