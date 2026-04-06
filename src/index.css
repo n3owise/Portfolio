@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  
+  --color-ink: #1a1a1a;
+  --color-paper: #f4f0e6;
+  --color-line: #1a1a1a;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased overflow-x-hidden;
+  }
+
+  a,
+  button {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .ui-action {
+    @apply inline-flex items-center justify-center border-2 border-current px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors duration-200 hover:bg-current;
+  }
+
+  .ui-action-dark {
+    @apply inline-flex items-center justify-center border-2 border-current px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors duration-200 hover:bg-current text-paper hover:text-ink;
+  }
+
+  .ui-action-light {
+    @apply inline-flex items-center justify-center border-2 border-current px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors duration-200 hover:bg-current text-ink hover:text-paper;
+  }
+
+  .media-skeleton {
+    @apply absolute inset-0 animate-pulse bg-ink/10;
+  }
+
+  .portfolio-splash-background {
+    background:
+      radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.72), transparent 30%),
+      radial-gradient(circle at 82% 76%, rgba(255, 206, 99, 0.24), transparent 28%),
+      linear-gradient(135deg, #fff7ea 0%, #f6e9d0 48%, #efe0c1 100%);
+  }
+
+  .portfolio-splash-grid {
+    background-image:
+      linear-gradient(to right, rgba(40, 49, 73, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(40, 49, 73, 0.08) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.45;
+  }
+
+  .portfolio-splash-container {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .portfolio-folder {
+    width: min-content;
+    margin: auto;
+    animation: portfolio-folder-float 2s infinite linear;
+  }
+
+  .portfolio-folder-top {
+    background-color: #ff8f56;
+    width: 60px;
+    height: 12px;
+    border-top-right-radius: 10px;
+  }
+
+  .portfolio-folder-bottom {
+    background-color: #ffce63;
+    width: 100px;
+    height: 70px;
+    box-shadow: 5px 5px 0 0 #283149;
+    border-top-right-radius: 8px;
+  }
+
+  .portfolio-splash-title {
+    margin-top: 15px;
+    color: #283149;
+    text-align: center;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.26em;
+  }
+
+  .portfolio-assembly-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    overflow: hidden;
+    pointer-events: none;
+    isolation: isolate;
+    opacity: 0;
+  }
+
+  .portfolio-assembly-backdrop {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background:
+      radial-gradient(circle at 50% 42%, rgba(255, 248, 234, 0.78), rgba(255, 244, 220, 0.42) 28%, rgba(255, 240, 214, 0) 64%),
+      linear-gradient(180deg, rgba(4, 5, 9, 0) 0%, rgba(10, 12, 18, 0.04) 44%, rgba(10, 12, 18, 0.09) 100%);
+  }
+
+  .portfolio-assembly-aura {
+    position: absolute;
+    width: 34vmax;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    opacity: 0;
+    filter: blur(26px);
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 223, 168, 0.72) 20%, rgba(255, 171, 86, 0.2) 40%, rgba(40, 49, 73, 0) 72%);
+    mix-blend-mode: screen;
+  }
+
+  .portfolio-assembly-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: transparent;
+    will-change: transform, opacity, filter;
+  }
+
+  .portfolio-assembly-preview-root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--color-paper);
+    overflow: hidden;
+    border-left: 4px solid var(--color-ink);
+    border-right: 4px solid var(--color-ink);
+    box-shadow:
+      0 26px 70px rgba(10, 12, 18, 0.16),
+      0 10px 24px rgba(10, 12, 18, 0.08);
+    pointer-events: none;
+  }
+
+  .portfolio-assembly-preview-root,
+  .portfolio-assembly-preview-root * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .portfolio-assembly-preview-root img {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+/* Lenis Recommended Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Utilities for animation */
+.reveal-text-wrapper {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.reveal-text {
+  display: inline-block;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+.image-parallax-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-parallax {
+  will-change: transform;
+  transform: scale(1.1);
+}
+
+/* Newspaper Utilities */
+.border-grid {
+  border-color: var(--color-line);
+}
+
+.newspaper-col {
+  column-count: 1;
+  column-gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .newspaper-col {
+    column-count: 2;
+  }
+}
+
+.drop-cap::first-letter {
+  float: left;
+  font-size: 4.5rem;
+  line-height: 0.8;
+  padding-right: 0.5rem;
+  padding-top: 0.1rem;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  color: var(--color-ink);
+}
+
+.border-thick {
+  border-width: 4px;
+  border-color: var(--color-ink);
+}
+
+.border-double-y {
+  border-top: 4px double var(--color-ink);
+  border-bottom: 4px double var(--color-ink);
+}
+
+@keyframes portfolio-folder-float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-folder {
+    animation: none;
+  }
+}

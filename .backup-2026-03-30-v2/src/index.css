@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  
+  --color-ink: #1a1a1a;
+  --color-paper: #f4f0e6;
+  --color-line: #1a1a1a;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased overflow-x-hidden;
+  }
+
+  a,
+  button {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .ui-action {
+    @apply inline-flex items-center justify-center border-2 border-current px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors duration-200 hover:bg-current;
+  }
+
+  .ui-action-dark {
+    @apply inline-flex items-center justify-center border-2 border-current px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors duration-200 hover:bg-current text-paper hover:text-ink;
+  }
+
+  .ui-action-light {
+    @apply inline-flex items-center justify-center border-2 border-current px-4 py-3 text-xs uppercase tracking-widest font-bold transition-colors duration-200 hover:bg-current text-ink hover:text-paper;
+  }
+
+  .media-skeleton {
+    @apply absolute inset-0 animate-pulse bg-ink/10;
+  }
+}
+
+/* Lenis Recommended Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Utilities for animation */
+.reveal-text-wrapper {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.reveal-text {
+  display: inline-block;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+.image-parallax-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-parallax {
+  will-change: transform;
+  transform: scale(1.1);
+}
+
+/* Newspaper Utilities */
+.border-grid {
+  border-color: var(--color-line);
+}
+
+.newspaper-col {
+  column-count: 1;
+  column-gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .newspaper-col {
+    column-count: 2;
+  }
+}
+
+.drop-cap::first-letter {
+  float: left;
+  font-size: 4.5rem;
+  line-height: 0.8;
+  padding-right: 0.5rem;
+  padding-top: 0.1rem;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  color: var(--color-ink);
+}
+
+.border-thick {
+  border-width: 4px;
+  border-color: var(--color-ink);
+}
+
+.border-double-y {
+  border-top: 4px double var(--color-ink);
+  border-bottom: 4px double var(--color-ink);
+}
