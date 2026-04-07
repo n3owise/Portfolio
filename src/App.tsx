@@ -54,6 +54,7 @@ export default function App() {
     });
 
     setLenis(lenis);
+    (window as any).lenis = lenis;
     lenis.stop();
     document.body.style.overflow = 'hidden';
 

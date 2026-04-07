@@ -33,17 +33,32 @@ export default function Hero({ isReady = true }: HeroProps) {
 
           <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
-              href="mailto:amanverma.zip@gmail.com?subject=Resume%20Request%20-%20Aman%20Verma"
+              href="https://drive.google.com/file/d/11mS5p6XhVpqVlQxJNW2zUOm1BJOYzynX/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
               className="ui-action-light w-full sm:w-auto"
             >
               View Resume
             </a>
-            <a
-              href="#contact"
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.querySelector('#contact');
+                if (target) {
+                  if ((window as any).lenis) {
+                    (window as any).lenis.scrollTo(target, {
+                      duration: 2.2,
+                      easing: (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+                    });
+                  } else {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              }}
               className="ui-action-light w-full sm:w-auto"
             >
-              Contact
-            </a>
+              Contact me
+            </button>
           </div>
         </div>
         <div className="md:col-span-4 flex flex-col" data-intro-target="hero-side">

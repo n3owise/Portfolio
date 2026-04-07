@@ -67,7 +67,7 @@ export default function Contact() {
                   <a href="tel:+919808655625" className="ui-action-dark w-full text-sm normal-case tracking-normal">Phone</a>
                   <a href="https://www.linkedin.com/in/amanverma-zip/" target="_blank" rel="noreferrer" className="ui-action-dark w-full text-sm normal-case tracking-normal">LinkedIn</a>
                   <a href="https://x.com/amanverma_zip" target="_blank" rel="noreferrer" className="ui-action-dark w-full text-sm normal-case tracking-normal">X</a>
-                  <a href="mailto:amanverma.zip@gmail.com?subject=Resume%20Request%20-%20Aman%20Verma" className="ui-action-dark w-full text-sm normal-case tracking-normal">View Resume</a>
+                  <a href="https://drive.google.com/file/d/11mS5p6XhVpqVlQxJNW2zUOm1BJOYzynX/view?usp=sharing" target="_blank" rel="noreferrer" className="ui-action-dark w-full text-sm normal-case tracking-normal">View Resume</a>
                 </div>
               </div>
             </div>
