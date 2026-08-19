@@ -54,8 +54,8 @@ const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http:/
 
   <!-- TOP MASTHEAD BAR -->
   <g class="font-sans" font-size="11" font-weight="700" fill="#1a1a1a" letter-spacing="3">
-    <text x="52" y="58" text-anchor="start">VOL. I — NO. 1</text>
-    <text x="600" y="58" text-anchor="middle">★ THE PORTFOLIO STUDIO ★</text>
+    <text x="52" y="58" text-anchor="start">THE PORTFOLIO STUDIO</text>
+    <text x="600" y="58" text-anchor="middle">★ AMAN VERMA ★</text>
     <text x="1148" y="58" text-anchor="end">AGRA, INDIA • 25 CENTS</text>
   </g>
 

@@ -39,8 +39,7 @@ export default function Header() {
       data-intro-target="header"
     >
       <div className="w-full flex justify-between items-end border-b-2 border-ink pb-2 mb-4 text-xs md:text-sm font-serif uppercase tracking-widest font-bold gap-3">
-        <span>Vol. I - No. 1</span>
-        <span className="text-center hidden md:block">The Portfolio Studio</span>
+        <span>The Portfolio Studio</span>
         <span className="text-right">{date} | {time}</span>
       </div>
       <h1 className="text-[clamp(2.5rem,10vw,7.5rem)] font-serif font-black uppercase tracking-tight leading-none text-center mb-4 break-words">
